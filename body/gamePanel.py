@@ -1,10 +1,5 @@
 from __future__ import print_function
-try:
-    import tkinter as tk # For Python 3
-    import tkinter.messagebox as messagebox
-except:
-    import Tkinter as tk # For Python 2
-    import tkMessageBox as messagebox
+import tkinter as tk # For Python 3
 import sys
 
 class GamePanel:

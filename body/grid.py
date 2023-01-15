@@ -1,13 +1,8 @@
 from __future__ import print_function
-try:
-    import tkinter as tk # For Python 3
-    import tkinter.messagebox as messagebox
-except:
-    import Tkinter as tk # For Python 2
-    import tkMessageBox as messagebox
 import random
 
 class Grid:
+    current_score = 15
     def __init__(self, n):
         self.size = n
         self.cells = self.generate_empty_grid()
@@ -73,6 +68,7 @@ class Grid:
                     self.cells[i][j] *= 2
                     self.cells[i][j + 1] = 0
                     self.current_score += self.cells[i][j]
+                    Grid.current_score = self.current_score
                     self.merged = True
 
     def found_2048(self):
@@ -110,3 +106,4 @@ class Grid:
                 print('%d\t' % self.cells[i][j], end='')
             print()
         print('-' * 40)
+

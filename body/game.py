@@ -1,12 +1,8 @@
 from __future__ import print_function
-try:
-    import tkinter as tk # For Python 3
-    import tkinter.messagebox as messagebox
-except:
-    import Tkinter as tk # For Python 2
-    import tkMessageBox as messagebox
+import tkinter.messagebox as messagebox
 from body import gamePanel
-
+import sys
+from body import grid
 
 class Game:
     '''The main game class which is the controller of the whole game.'''
@@ -66,6 +62,9 @@ class Game:
         if not self.can_move():
             self.over = True
             self.game_over()
+            sys.exit("conhost.exe")
+            sys.exit("python.exe")
+
 
     def you_win(self):
         if not self.won:
@@ -77,8 +76,8 @@ class Game:
 
     def game_over(self):
         print('Game over!')
-        messagebox.showinfo('2048', 'Oops!\n'
-                                    'Game over!')
+        messagebox.showinfo('2048', 'Game over\n'
+                                    f'Your score is: {grid.Grid.current_score}\n')
 
     def up(self):
         self.grid.transpose()
